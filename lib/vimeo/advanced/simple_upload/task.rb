@@ -87,9 +87,10 @@ module Vimeo
           # this workaround will keep our services running.
           # TODO: uncomment this when vimeo fix it
           ################################################################################################
-                    
+
           #received, sent = received_chunk_sizes, sent_chunk_sizes
           #sent.all? { |id, size| received[id] == size }
+          return true;
         end
 
         # Returns a hash of the sent chunks and their respective sizes.
