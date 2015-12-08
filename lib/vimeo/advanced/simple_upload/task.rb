@@ -82,8 +82,14 @@ module Vimeo
 
         # Compares Vimeo's chunk list with own chunk list. Returns +true+ if identical.
         def valid?
-          received, sent = received_chunk_sizes, sent_chunk_sizes
-          sent.all? { |id, size| received[id] == size }
+          ################################################################################################
+          #Vimeo has a bug when receiving chunk list. Dez/2015. They are working, but, until then,
+          # this workaround will keep our services running.
+          # TODO: uncomment this when vimeo fix it
+          ################################################################################################
+                    
+          #received, sent = received_chunk_sizes, sent_chunk_sizes
+          #sent.all? { |id, size| received[id] == size }
         end
 
         # Returns a hash of the sent chunks and their respective sizes.
